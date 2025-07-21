@@ -39,23 +39,25 @@
     </footer>
     
 <script>
-    fetch("https://clmilkshake.github.io/Streaming/data/channelPointsData.json")
-    .then(response => response.json())
-    .then(data => {
-      let outputHtml = '';
+    window.onload = function getData() {
+        fetch("https://clmilkshake.github.io/Streaming/data/channelPointsData.json")
+        .then(response => response.json())
+        .then(data => {
+        let outputHtml = '';
 
-      for (const [username, points] of Object.entries(data)) {
-        outputHtml += `<h2>${username}: ${points} points</h2>`;
-      }
+        for (const [username, points] of Object.entries(data)) {
+            outputHtml += `<h2>${username}: ${points} points</h2>`;
+        }
 
-      // Inject into the div
-      document.getElementById('output').innerHTML = outputHtml;
-    })
-    .catch(error => {
-      console.error('Fetching data failed:', error);
-      document.getElementById('output').innerHTML = '<h2>Failed to load data.</h2>';
-    })
-    .catch(err => console.error("Failed to load data:", err));
+        // Inject into the div
+        document.getElementById('output').innerHTML = outputHtml;
+        })
+        .catch(error => {
+        console.error('Fetching data failed:', error);
+        document.getElementById('output').innerHTML = '<h2>Failed to load data.</h2>';
+        })
+        .catch(err => console.error("Failed to load data:", err));
+    }
 </script>
 </body>
 </html>
