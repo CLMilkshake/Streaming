@@ -1,0 +1,134 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    /* The image used */
+    background: linear-gradient(rgb(2, 204, 204), rgb(31, 31, 31)); background-size: 100%;
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    background: linear-gradient(rgb(204, 191, 2), rgb(2, 204, 204)); background-size: 100%;
+    color: rgb(0, 0, 0);
+    padding: 30px;
+    text-align: center;
+}
+
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0073a0b0;
+    border: 5px solid #00000000;
+    border-radius: 100px;
+    max-height: 200px;
+}
+
+nav a {
+    padding: 14px 20px;
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 20px;
+}
+
+nav a:hover {
+    transition: 0.5s all;
+    background-color: rgba(204, 191, 2, 0.753);
+    color: rgb(0, 0, 0);
+}
+
+
+.content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content hr{
+    width: 40%;
+    margin-top: -10px;
+    margin-bottom: 50px;
+}
+
+.content h1 {
+    text-align: center;
+    color: rgb(0, 0, 0);
+    text-shadow: 0 0 10px #ffffff;
+}
+
+.grid-container {
+    padding-top: 3%;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, minmax(200%, 50%));
+    gap: 10px;
+    margin-bottom: 100px;
+}
+
+.grid-item {
+    background-color: #0000008a;
+    padding: 20px;
+    text-align: center;
+    border: 5px solid rgb(51, 51, 51); 
+    border-radius: 20px;
+}
+
+.grid-item h2 {
+    color: white;
+    margin-top: 0px;
+    font-size: 150%;
+}
+
+.grid-item img {
+    max-width: 100%;
+    height: auto;
+    border: 5px solid rgba(0, 0, 0, 0.212); 
+    border-radius: 20px;
+    margin-left: -5px;
+}
+
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+
+@media (max-width: 600px) {
+    nav {
+        flex-direction: row;
+        border-radius: 30px;
+        max-height: 200px;
+    }
+    nav a {
+        text-align: left;
+        padding: 10px;
+        /* border-top: 1px solid #444;
+        border-bottom: 1px solid #444; */
+    }
+    .grid-item h2 {
+        color: white;
+        margin-top: 0px;
+        font-size: 100%;
+    }
+
+}

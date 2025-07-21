@@ -1,0 +1,61 @@
+<!-- Save this for later, adds a prompt on screen, kinda cool... var name = prompt("What's your name?"); -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLMilkshake15</title>
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header>
+        <img src="images/logo.png" style="width: 80px; margin-bottom: -10px;">
+        <h1>CLMilkshake15's Data</h1>
+        <hr>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="#">Data</a>
+        <a href="">Channel</a>
+    </nav>
+
+    <div class="content">
+        <h1></h1>
+        <hr>
+        <div class="grid-container">
+            <div class="grid-item">
+                <a>
+                    <h1 style="text-decoration: underline;">Channel Points</h1>  
+                    <div id="output"></div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 CLMilkshake</p>
+    </footer>
+    
+<script>
+    fetch("https://clmilkshake.github.io/Streaming/data/channelPointsData.json")
+    .then(response => response.json())
+    .then(data => {
+      let outputHtml = '';
+
+      for (const [username, points] of Object.entries(data)) {
+        outputHtml += `<h2>${username}: ${points} points</h2>`;
+      }
+
+      // Inject into the div
+      document.getElementById('output').innerHTML = outputHtml;
+    })
+    .catch(error => {
+      console.error('Fetching data failed:', error);
+      document.getElementById('output').innerHTML = '<h2>Failed to load data.</h2>';
+    })
+    .catch(err => console.error("Failed to load data:", err));
+</script>
+</body>
+</html>
